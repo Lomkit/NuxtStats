@@ -1,7 +1,6 @@
 # Nuxt Stats Plugin
 
-> Stats.   
-> Based on https://github.com/eolant/vuetify-toast-snackbar and https://github.com/jaredhan418/vuetify-toast-snackbar-ng
+> Stats plugin used to send statistics to lomkit portal.
 
 ## Setup
 
