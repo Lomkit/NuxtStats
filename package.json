@@ -1,0 +1,19 @@
+{
+  "name": "@lomkit/stats",
+  "authors": [
+    {
+      "name": "Gautier DELEGLISE",
+      "email": "gautier.deleglise@gmail.com"
+    }
+  ],
+  "version": "1.0.0",
+  "license": "CC-BY",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.1",
+    "device-uuid": "^1.0.4"
+  }
+}
