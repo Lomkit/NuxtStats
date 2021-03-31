@@ -29,5 +29,5 @@ this.$stats.setUuid('721ca239-854f-4699-8755-a4320660e772')
 ```
 
 ```js
-this.$toast.heartbeat() // Send activity ping every 15 minutes
+this.$stats.heartbeat() // Send activity ping every 15 minutes
 ```
