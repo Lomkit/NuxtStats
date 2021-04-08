@@ -3,8 +3,8 @@
 > Stats plugin used to send data to Lomkit portal.
 
 ## Setup
-
-- Add `@lomkit/stats` dependency using yarn or npm to your project (or git if doesn't have private npm registry)
+- Run `npm install git+https://github.com/Lomkit/NuxtStats.git`
+- Add `@lomkit/stats`
 - Add `@lomkit/stats` to `modules` section of `nuxt.config.js` (or `~/modules/stats` via git)
 
 ```js
