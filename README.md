@@ -4,7 +4,6 @@
 
 ## Setup
 - Run `npm install git+https://github.com/Lomkit/NuxtStats.git`
-- Add `@lomkit/stats`
 - Add `@lomkit/stats` to `modules` section of `nuxt.config.js` (or `~/modules/stats` via git)
 
 ```js
