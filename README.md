@@ -1,6 +1,6 @@
 # Nuxt Stats Plugin
 
-> Stats plugin used to send statistics to Lomkit portal.  
+> Stats plugin used to send data to Lomkit portal.
 
 ## Setup
 
