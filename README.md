@@ -1,7 +1,6 @@
 # Nuxt Stats Plugin
 
-> Stats.   
-> Based on https://github.com/eolant/vuetify-toast-snackbar and https://github.com/jaredhan418/vuetify-toast-snackbar-ng
+> Stats plugin used to send statistics to Lomkit portal.  
 
 ## Setup
 
@@ -24,11 +23,22 @@
 ## Usage
 You can use **$stats** in almost any context using `ctx.$stats` or `app.$stats` or `this.$stats` (Including store actions).
 
-You need to define the device uuid using
+You can overwrite the device UUID using:  
+*This is called automatically with device uuid in cordova if using cordova-plugin-device*
 ```js
 this.$stats.setUuid('721ca239-854f-4699-8755-a4320660e772')
 ```
 
+You can send a comment using:
 ```js
-this.$toast.heartbeat() // Called automatically every 
+this.$stats.sendComment('My comment')
 ```
+
+To manually call the heartbeat:
+```js
+this.$toast.heartbeat() // Called automatically every 15 minutes
+```
+
+## Store validation
+
+The validation url is automatically set by the module.
