@@ -6,6 +6,7 @@
 
 import Vue from 'vue'
 import axios from 'axios'
+import moment from 'moment'
 
 class Stats {
 
@@ -14,16 +15,23 @@ class Stats {
   constructor() {
     this.version = '1.0.0'
 
-    if (!'<%= options.application_id %>' || !'<%= options.url %>') {
-      console.error( 'Please make sure you added application_id to stats options')
+    if (!<%= options.application_id %> || !'<%= options.url %>' || !'<%= options.test %>') {
+      console.error( 'Please make sure you added all necessary variables in the applications, these may result in unexpected behavior of the Lomkit plugin')
       return;
     }
 
-    this.application_id = '<%= options.application_id %>'
+    this.application_id = <%= options.application_id %>
     this.url = '<%= options.url %>'
+    this.test = {
+      date: '<%= options.test.date %>',
+      duration: <%= options.test.duration %>
+    }
     this.$axios = axios
     this.$axios.defaults.baseURL = this.url
 
+    this.$moment = moment
+
+    // Launch cordova config
     const that = this
     document.addEventListener('deviceready', () => {
       if (device === undefined || store === undefined)
@@ -33,7 +41,8 @@ class Stats {
         that.setUuid(device.uuid)
 
       if (store !== undefined)
-        store.validator = that.url + that.validationUrl;
+        store.validator = that.url + that.validationUrl
+
     }, false);
   }
 
@@ -65,7 +74,7 @@ class Stats {
   }
 
   userActivityPost(self) {
-    self.$axios.post('api/statistics/user-activity',{
+    return self.$axios.post('api/statistics/user-activity',{
       device_uuid: self.uuid,
       application_id: self.application_id
     })
@@ -76,6 +85,11 @@ class Stats {
       application_id: this.application_id,
       content
     })
+  }
+
+  isInTest() {
+    return this.$moment(this.test.date).isSameOrBefore(this.$moment(), 'day')
+      && this.$moment(this.test.date).add(this.test.duration, 'days').isSameOrAfter(this.$moment(), 'day')
   }
 }
 
