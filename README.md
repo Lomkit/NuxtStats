@@ -16,7 +16,7 @@
         application_id: 0,
         url: 'http://localhost/',
         test: {
-              date: '2021-04-15', // Date of begining of tests
+              date: '2021-04-15', // Date of beginning of tests
               duration: 7 // Number of days
         }
     }
