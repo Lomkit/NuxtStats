@@ -91,6 +91,9 @@ class Stats {
     return this.$moment(this.test.date).isSameOrBefore(this.$moment(), 'day')
       && this.$moment(this.test.date).add(this.test.duration, 'days').isSameOrAfter(this.$moment(), 'day')
   }
+  redirectStore() {
+    return new URL(`/redirect-store/${this.application_id}`, this.url)
+  }
 }
 
 const StatsPlugin = {

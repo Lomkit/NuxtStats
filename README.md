@@ -37,6 +37,11 @@ You can send a comment using:
 this.$stats.sendComment('My comment')
 ```
 
+To get the Lomkit url to redirect to stores:
+```js
+this.$toast.redirectStore()
+```
+
 To manually call the heartbeat:
 ```js
 this.$toast.heartbeat() // Called automatically every 15 minutes
