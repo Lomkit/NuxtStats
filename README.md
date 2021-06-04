@@ -23,6 +23,10 @@
 }
 ```
 
+## Testing mode
+
+While the application is in test mode, nothing will be sent to the lomkit portal.
+
 ## Usage
 You can use **$stats** in almost any context using `ctx.$stats` or `app.$stats` or `this.$stats` (Including store actions).
 
@@ -39,12 +43,12 @@ this.$stats.sendComment('My comment')
 
 To get the Lomkit url to redirect to stores:
 ```js
-this.$toast.redirectStore()
+this.$stats.redirectStore()
 ```
 
 To manually call the heartbeat:
 ```js
-this.$toast.heartbeat() // Called automatically every 15 minutes
+this.$stats.heartbeat() // Called automatically every 15 minutes
 ```
 
 ## Store validation

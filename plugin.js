@@ -74,6 +74,7 @@ class Stats {
   }
 
   userActivityPost(self) {
+    if (self.isInTest()) return;
     return self.$axios.post('api/statistics/user-activity',{
       device_uuid: self.uuid,
       application_id: self.application_id
@@ -81,7 +82,8 @@ class Stats {
   }
 
   commentStore(content) {
-    this.$axios.post('api/comments',{
+    if (self.isInTest()) return;
+    return this.$axios.post('api/comments',{
       application_id: this.application_id,
       content
     })
